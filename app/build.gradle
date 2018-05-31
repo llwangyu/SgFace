@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'sgface'
+            keyPassword '12345678'
+            storeFile file('C:/Users/Fisher/.android/sgface.jks')
+            storePassword '12345678'
+        }
+    }
+    compileSdkVersion 26
+    buildToolsVersion "25.0.3"
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
+    defaultConfig {
+        applicationId "com.android.fisher.sgface"
+        minSdkVersion 18
+        targetSdkVersion 26
+        versionCode 1805311
+        versionName "施工会议签到-V1.04   Copyright@2018  兰州局"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+            jni.srcDirs = []
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testCompile 'junit:junit:4.12'
+    compile files('libs/androidannotations-api-3.2.jar')
+    compile files('libs/BaiduLBS_Android.jar')
+    compile files('libs/commons-net-3.0.1.jar')
+    compile files('libs/gson-2.8.2.jar')
+    compile 'com.android.support:appcompat-v7:26.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:26.+'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    compile 'com.android.support:support-v4:26.+'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.jph.takephoto:takephoto_library:4.0.3'
+}

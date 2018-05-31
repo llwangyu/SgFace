@@ -1,0 +1,11 @@
+<resources>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <string name="app_name">施工会议签到</string>
+    <string name="id_hint">电话号码</string>
+    <string name="pwd_hint">会议码</string>
+    <string name="forgot_pwd">忘记密码？</string>
+    <string name="new_usr">注册新用户</string>
+    <string name="login_btn_text">登陆</string>
+
+</resources>
